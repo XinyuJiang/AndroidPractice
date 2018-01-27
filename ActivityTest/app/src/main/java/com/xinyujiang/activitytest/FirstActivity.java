@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class FirstActivity extends AppCompatActivity {
+public class FirstActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {//requestcode表示启动活动时候的请求码，startactivity启动活动没有这个，但是startactivityforresult则会设定请求码；第二个参数即我们在返回数据时传入的处理结果
         switch(requestCode){
@@ -46,21 +46,38 @@ public class FirstActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("FirstActivity","onRestart");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("FirstActivity","onStart");
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        Log.d("FirstActivity","Task id is " + getTaskId());//打印返回栈的id
         setContentView(R.layout.first_layout);//在活动中加载这个布局
         Button button1 = (Button) findViewById(R.id.button_1); //获取在布局文件中定义的元素，返回View对象
         button1.setOnClickListener(new View.OnClickListener(){  //为按钮注册一个监听器
             @Override
             public void onClick(View v){
-                Toast.makeText(FirstActivity.this,"You clicked Button 1",//第一个参数是Context，即Toast要求的上下文,第二个是显示的文本内容
+
+                Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+                startActivity(intent);
+
+                //Toast.makeText(FirstActivity.this,"You clicked Button 1",//第一个参数是Context，即Toast要求的上下文,第二个是显示的文本内容
                         // 第三个是显示的时长
-                        Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent (FirstActivity.this,SecondActivity.class);//显式Intent;实现启动活动（以first作为上下文得到second的句柄，在下一行代码中启动目标活动second）
+                //        Toast.LENGTH_SHORT).show();
+                //Intent intent = new Intent (FirstActivity.this,SecondActivity.class);//显式Intent;实现启动活动（以first作为上下文得到second的句柄，在下一行代码中启动目标活动second）
                 /*Intent intent = new Intent("com.xinyujiang.activitytest.ACTION_START");//隐式Intent;直接将action的字符串传了进去，表明我们想要启动能够响应表示该字符串的action的活动。这里category采用了默认配置。
                 intent.addCategory("com.xinyujiang.activitytest.MY_CATEGORY");//添加一个category*/
-                startActivityForResult(intent,1);
+                //startActivityForResult(intent,1);
 
                 //String data = "Hello SecondActivity";
                 //Intent intent = new Intent(FirstActivity.this,SecondActivity.class);

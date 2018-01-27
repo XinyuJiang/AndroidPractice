@@ -8,8 +8,11 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <!--singleTop启动模式,在启动活动时如果发现返回栈的栈顶已经是该活动，则认为可以直接使用它，不会再创建新的活动实例
+        singleTask启动模式，在启动活动时如果发现栈中已经有该活动那么就把该活动上的所有活动统统出栈，使得该活动变为栈顶；如果没找到那么就新建一个实例-->
         <activity
             android:name=".FirstActivity"
+            android:launchMode="singleTask"
             android:label="This is FirstActivity">
 
             <!--
@@ -22,7 +25,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecondActivity">
+        <activity android:name=".SecondActivity"
+            android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="com.xinyujiang.activitytest.ACTION_START" /> <!-- .配置intent-filter指定当前活动能够响应的action和category. -->
                 <category android:name="android.intent.category.DEFAULT" />

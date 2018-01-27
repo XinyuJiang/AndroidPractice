@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-public class SecondActivity extends AppCompatActivity {
+public class SecondActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {//使得利用back按钮后退也可以达到相同的效果
@@ -18,17 +18,25 @@ public class SecondActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("SecondActivity","onDestroy");
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("SecondActivity", "Task id is " + getTaskId());
         setContentView(R.layout.second_layout);
         Button button2 = (Button) findViewById(R.id.button_2);
         button2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent();
-                intent.putExtra("data_return","Hello FirstActivity");
-                setResult(RESULT_OK,intent);
-                finish();
+                Intent intent = new Intent(SecondActivity.this,ThirdActivity.class);
+                startActivity(intent);
+                //intent.putExtra("data_return","Hello FirstActivity");
+                //setResult(RESULT_OK,intent);
+                //finish();
             }
 
         });
