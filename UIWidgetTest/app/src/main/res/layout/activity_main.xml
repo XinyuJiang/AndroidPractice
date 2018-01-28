@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textColor="#00ff00"
+        android:text="This is TextView" />
+<!--android:gravity可以用来指定文字的对齐方式
+    android:textSize可以指定文字的大小（android中字体大小使用sp作为单位）
+    android:textColor可以指定文字的颜色-->
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        android:textAllCaps="false"/>
+<!--android:textAllCaps为true时对Button中的所有英文字母自动进行大写转换-->
+
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Type something here"
+        android:maxLines="2"/>
+
+    <!--EditText是程序用于和用户进行交互的一个重要组件。
+    android:hint会在输入框里显示一些提示性的文字，一旦用户输入了任何内容这些提示性文字就会消失
+    anddroid:maxLines指定了EditText的最大行数为两行,超过两行文本就会向上滚动-->
+
+</LinearLayout>
