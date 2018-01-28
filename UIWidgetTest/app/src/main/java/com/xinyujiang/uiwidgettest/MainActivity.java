@@ -1,5 +1,7 @@
 package com.xinyujiang.uiwidgettest;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,10 +31,31 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 switch (v.getId()){
                     case R.id.button:
-                        int progress = progressBar.getProgress();
+                        AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);  //首先通过AlertDialog.Builder创建一个AlertDialog的实例
+
+                        dialog.setTitle("This is Dialog");//为这个对话框设置标题，内容，可否用Back键关闭对话框等属性
+                        dialog.setMessage("Something important.");
+                        dialog.setCancelable(false);
+                        dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {//为对话框设置确定按钮的点击事件
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        });
+                        dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {//设置取消按钮的点击事件
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        });
+                        dialog.show();//调用show()方法把对话框显示出来
+                        break;
+
+                        /*int progress = progressBar.getProgress();
                         progress = progress + 10;
                         progressBar.setProgress(progress);
-                        break;
+                        break;*/
+
                         /*
                         * android的控件都有一个可见属性。可以通过android:visibility进行指定，有visible,invisible和gone三种可选值。
                         * visible表示控件是可见的，这个值是默认值
