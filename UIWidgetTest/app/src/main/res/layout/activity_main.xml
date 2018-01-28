@@ -35,4 +35,11 @@
     android:hint会在输入框里显示一些提示性的文字，一旦用户输入了任何内容这些提示性文字就会消失
     anddroid:maxLines指定了EditText的最大行数为两行,超过两行文本就会向上滚动-->
 
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_1"/>
+    <!--ImageView用于在界面上展示图片-->
+
 </LinearLayout>
