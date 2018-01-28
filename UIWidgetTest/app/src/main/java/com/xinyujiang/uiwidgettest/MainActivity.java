@@ -1,5 +1,6 @@
 package com.xinyujiang.uiwidgettest;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -31,8 +32,18 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 switch (v.getId()){
                     case R.id.button:
-                        AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);  //首先通过AlertDialog.Builder创建一个AlertDialog的实例
+                        /*
+                        * ProgressDialog和AlertDialog有点类似，都可以在界面上弹出一个对话框并且屏蔽其它控件的交互能力。
+                        * 但是ProgressDialog会在对话框中显示一个进度条，一般用于表示当前操作比较耗时，让用户耐心等待
+                        * */
+                        ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);//先构建出一个ProgressDialog对象
+                        progressDialog.setTitle("This is ProgressDialog");//设置各项属性
+                        progressDialog.setMessage("Loading...");
+                        progressDialog.setCancelable(true);//如果设置为false那么只能在数据加载完成后调用ProgressDialog的dismiss()方法来关闭对话框，否则会一直存在
+                        progressDialog.show();
+                        break;
 
+                        /*AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);  //首先通过AlertDialog.Builder创建一个AlertDialog的实例
                         dialog.setTitle("This is Dialog");//为这个对话框设置标题，内容，可否用Back键关闭对话框等属性
                         dialog.setMessage("Something important.");
                         dialog.setCancelable(false);
@@ -49,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                         });
                         dialog.show();//调用show()方法把对话框显示出来
-                        break;
+                        break;*/
 
                         /*int progress = progressBar.getProgress();
                         progress = progress + 10;
