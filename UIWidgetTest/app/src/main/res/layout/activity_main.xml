@@ -42,4 +42,14 @@
         android:src="@drawable/img_1"/>
     <!--ImageView用于在界面上展示图片-->
 
+    <ProgressBar
+        android:id="@+id/progree_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:max="100"/>
+    <!--ProgressBary用于在界面上显示一个进度条，表示我们的程序正在加载一些数据
+    可以通过修改style属性将它指定成水平进度条
+    android:max可以给属性条设置一个最大值-->
+
 </LinearLayout>
