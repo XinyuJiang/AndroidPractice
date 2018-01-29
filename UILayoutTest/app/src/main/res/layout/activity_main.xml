@@ -1,29 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <!--android:orientation属性指定了排列方向是vertical-->
-
-    <EditText
-        android:id="@+id/input_message"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:hint="Type something"/>
-
 
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        android:text="SEND" />
+        android:layout_above="@id/button3"
+        android:layout_toLeftOf="@id/button3"
+        android:text="Button 1" />
 
     <!--android:gravity用来指定控件在布局中的对局方式
     android:layout_gravity用来指定控件在布局中的对齐方式
     android:layout_weight允许我们使用比例的方式来指定控件的大小-->
 
+    <!--android中两种方式对控件进行定位
+    android:layout_alignParentLeft和android_layout_alignParentTop属性表示和父布局的左上角对齐
+    android:layout_above和android:layout_toLeftOfi表示让该控件位于Button3的左上角-->
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/button3"
+        android:layout_toRightOf="@id/button3"
+        android:text="Button 2" />
 
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Button 3" />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button3"
+        android:layout_toLeftOf="@id/button3"
+        android:text="Button 4" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button3"
+        android:layout_toRightOf="@id/button3"
+        android:text="Button 5" />
+
+</RelativeLayout>
