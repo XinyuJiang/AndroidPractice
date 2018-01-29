@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <!--android:orientation属性指定了排列方向是vertical-->
+
+    <!--FrameLayout又称作帧布局，比较简单，所有的控件都会默认摆放在布局的左上角（linearlayout是默认连续摆放控件）。
+    但是也可以像linearlayout那样指定控件在布局中的对齐方式。-->
 
     <Button
         android:id="@+id/button1"
@@ -50,4 +53,4 @@
         android:layout_toRightOf="@id/button3"
         android:text="Button 5" />
 
-</RelativeLayout>
+</FrameLayout>
