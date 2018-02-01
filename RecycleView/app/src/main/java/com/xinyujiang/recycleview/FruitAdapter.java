@@ -34,7 +34,7 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder>{
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {//创建ViewHolder实例，将fruit_item布局加载进来然后创建一个ViewHolder实例。
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fruit_item,parent, false);
         ViewHolder holder = new ViewHolder(view);
@@ -42,7 +42,7 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {//用于对RecycleView子项的数据进行赋值，会在每个子项被滚动到屏幕内的时候执行
         Fruit fruit = mFruitList.get(position);
         holder.fruitImage.setImageResource(fruit.getImageId());
         holder.fruitName.setText(fruit.getName());
