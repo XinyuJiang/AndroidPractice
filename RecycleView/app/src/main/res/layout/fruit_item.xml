@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="100dp"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp">
+<!--调整layout_width为Match_parent因为瀑布流布局的宽度应该是根据布局的列出来自动适配的
+ 修改layout_margin属性让子项之间互留一点间距-->
 
     <!--ImageView用于显示水果的图片
     TextView用于显示水果的名称，并让TextView在垂直方向上居中显示-->
@@ -16,7 +19,7 @@
         android:id="@+id/fruit_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="left"
         android:layout_marginTop="10dp"/>
 
 </LinearLayout>
