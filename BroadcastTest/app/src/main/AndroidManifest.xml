@@ -32,7 +32,8 @@
             android:name=".MyBroadcastReceiver"
             android:enabled="true"
             android:exported="true">
-            <intent-filter>
+            <!--将优先级设为100，保证这个receiver一定能在之前another之前接收到广播-->
+            <intent-filter android:priority="100">
                 <action android:name="com.xinyujiang.broadcasttest.MY_BROADCAST"/>
             </intent-filter>
         </receiver>

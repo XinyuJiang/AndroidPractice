@@ -13,5 +13,6 @@ public class MyBroadcastReceiver extends BroadcastReceiver{
     @Override
     public void onReceive(Context context, Intent intent) {
         Toast.makeText(context,"received in MyBroadcastReceiver", Toast.LENGTH_SHORT).show();
+        abortBroadcast();//表示将这条广播截断，后面的广播接收器将无法再接收到这条广播
     }
 }
