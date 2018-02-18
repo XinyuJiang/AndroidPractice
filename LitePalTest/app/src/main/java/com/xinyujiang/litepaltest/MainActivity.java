@@ -1,11 +1,13 @@
 package com.xinyujiang.litepaltest;
 
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import org.litepal.LitePal;
+import org.litepal.crud.DataSupport;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         Button addData = (Button) findViewById(R.id.add_data);
         addData.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) {//使用新建实例的方式向表中添加数据
                 Book book = new Book();
                 book.setName("The Da Vinci Code");
                 book.setAuthor("Dan Brown");
@@ -57,6 +59,13 @@ public class MainActivity extends AppCompatActivity {
                 book.setToDefault("pages");
                 book.updateAll();
                 */
+            }
+        });
+        Button deleteButton = (Button) findViewById(R.id.delete_data);
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DataSupport.deleteAll(Book.class,"price< ?","15");//第一个参数用于指定删除哪张表中的数据，后面的参数表示约束条件；该行表示删除Book表中价格低于15的书
             }
         });
     }
