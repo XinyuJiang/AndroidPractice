@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value="BookStore" ></dbname>
+
+    <version value= "4"></version>
+    <list>
+        <mapping class="com.xinyujiang.litepaltest.Book"></mapping>
+        <mapping class="com.xinyujiang.litepaltest.Category"></mapping>
+    </list>
+</litepal>
+<!--<dbname>表示数据库的名字
+<version>表示数据库的版本号,记住对数据库作出修改后要将版本号增加
+<list>标签用于指定所有的映射模型
+使用<mapping>标签来生ing我们要配置的映射模型类-->
